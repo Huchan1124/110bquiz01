@@ -44,6 +44,8 @@ class DB{
 
     }
 
+    // count() 計數函式
+
     public function count(...$arg){
         $sql="select count(*) from $this->table ";
 
@@ -67,6 +69,8 @@ class DB{
         return $this->pdo->query($sql)->fetchColumn();
 
     }
+
+    // 取得單筆資料find()函式功能
     public function find($id){
         $sql="select * from $this->table ";
 
