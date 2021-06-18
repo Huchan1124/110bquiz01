@@ -1,5 +1,4 @@
 <?php
-
 // 建立 base.php 檔，用來放共用的設定、變數、常數及函式。
 class DB{
     // 設定好PDO的連線參數 $pdo=new PDO()
@@ -45,4 +44,7 @@ $db2=new DB("stories");
 echo "<pre>";
 print_r($db2->all());
 echo "</pre>";
+
+
 ?>
+
