@@ -89,6 +89,9 @@ class DB{
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
     }
+
+    // 刪除資料功能del()
+
     public function del($id){
         $sql="delete from $this->table ";
             if(is_array($id)){
