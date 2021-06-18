@@ -109,7 +109,7 @@ class DB{
 
     }
 
-
+    // update和insert功能
     public function save($array){
         if(isset($array['id'])){
             //update
