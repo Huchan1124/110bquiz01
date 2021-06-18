@@ -89,14 +89,30 @@ class DB{
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
     }
+    public function del($id){
+        $sql="delete from $this->table ";
+            if(is_array($id)){
+                foreach($id as $key => $value){
+                    $tmp[]=sprintf("`%s`='%s'",$key,$value);
+                }
+                    $sql=$sql . " where " . implode(" && ",$tmp);
+            }else{
+ 
+                $sql=$sql . " where `id`='$id'";
+            }
+
+        echo $sql;
+        return $this->pdo->exec($sql);
+
+    }
 
 }
 
-$User=new DB("user");
+$Store=new DB("stories");
 
 
 echo "<pre>";
-print_r($User->find(['level'=>2,'visible'=>"N"]));
+print_r($Store->del(['intro_chinese'=>'123']));
 echo "</pre>";
 
 /* echo "<pre>";
@@ -107,7 +123,5 @@ echo "<pre>";
 print_r($User->count(" where `visible`='Y' " , " order by `id` DESC"));
 echo "</pre>";
  */
-
-
 
 ?>
